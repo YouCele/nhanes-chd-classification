@@ -1,0 +1,9 @@
+{
+  "variable": "MCQ160C",
+  "file": "MCQ (Medical Conditions questionnaire)",
+  "question": "Has a doctor or other health professional ever told you that you had coronary heart disease?",
+  "asked_of": "participants aged 20 years and over",
+  "codes": "1 = Yes, 2 = No, 7 = Refused, 9 = Don't know, blank = missing",
+  "mapping": "1 -> 1 ; 2 -> 0 ; 7, 9, blank -> excluded (target not usable)",
+  "note": "This is self-reported, physician-diagnosed CHD. It is not angiography-confirmed disease and it is not a clinical gold standard."
+}

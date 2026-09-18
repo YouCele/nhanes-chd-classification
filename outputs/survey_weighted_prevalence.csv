@@ -1,0 +1,13 @@
+group,level,weighted_prevalence,standard_error,ci_low,ci_high,unweighted_prevalence,n,note
+overall,all,0.03581542220903519,0.002377282475930772,0.03115594855621088,0.040474895861859504,0.040843764487714415,21570,"design-based estimate using masked strata and PSUs, MEC weights divided by the number of cycles"
+sex,Female,0.025241062815982436,0.0023386626821891507,0.0206572839588917,0.02982484167307317,0.02651141961486789,11165,"design-based estimate using masked strata and PSUs, MEC weights divided by the number of cycles"
+sex,Male,0.04725390933253042,0.0035836542122204083,0.04022994707657842,0.054277871588482414,0.056222969726093225,10405,"design-based estimate using masked strata and PSUs, MEC weights divided by the number of cycles"
+age_group,20-39,0.00232081511510807,0.0007527577792919588,0.0008454098676958309,0.0037962203625203092,0.0023584905660377358,7208,"design-based estimate using masked strata and PSUs, MEC weights divided by the number of cycles"
+age_group,40-49,0.009195239742896296,0.0018737091047757945,0.005522769897535739,0.012867709588256853,0.011207621182404036,3569,"design-based estimate using masked strata and PSUs, MEC weights divided by the number of cycles"
+age_group,50-59,0.02638726719473078,0.0038318111754281196,0.018876917290891665,0.03389761709856989,0.02728551336146273,3555,"design-based estimate using masked strata and PSUs, MEC weights divided by the number of cycles"
+age_group,60-69,0.07470757165198522,0.007756579959233584,0.059504674931887394,0.08991046837208304,0.06552554158866007,3739,"design-based estimate using masked strata and PSUs, MEC weights divided by the number of cycles"
+age_group,70+,0.13726858794103639,0.007912210579785195,0.1217606552046574,0.15277652067741537,0.13775364389825664,3499,"design-based estimate using masked strata and PSUs, MEC weights divided by the number of cycles"
+survey_cycle,2011-2012,0.029995661807171684,0.004536476427527106,0.021104168009218556,0.03888715560512481,0.03528967729760332,5299,"design-based estimate using masked strata and PSUs, MEC weights divided by the number of cycles"
+survey_cycle,2013-2014,0.03651498203100664,0.004326096860009762,0.028035832185387508,0.04499413187662578,0.04020100502512563,5572,"design-based estimate using masked strata and PSUs, MEC weights divided by the number of cycles"
+survey_cycle,2015-2016,0.03499128821203295,0.0037197050735494155,0.027700666267876095,0.0422819101561898,0.04165137614678899,5450,"design-based estimate using masked strata and PSUs, MEC weights divided by the number of cycles"
+survey_cycle,2017-2018,0.0414029592838564,0.006078708578397652,0.029488690470197004,0.053317228097515795,0.046294532291865115,5249,"design-based estimate using masked strata and PSUs, MEC weights divided by the number of cycles"

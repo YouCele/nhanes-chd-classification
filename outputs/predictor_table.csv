@@ -1,0 +1,49 @@
+variable,source_file,meaning,data_type,missingness,included,reason
+age,DEMO,age in years at screening (80 = 80 and over),numeric,0.0,True,retained as a legitimate predictor
+anemia_treated,MCQ,treated for anemia in the past 3 months,binary,0.001205377839592026,True,retained as a legitimate predictor
+arm_circ,BMX,arm circumference (cm),numeric,0.051089476124246636,True,retained as a legitimate predictor
+arthritis,MCQ,ever told had arthritis,binary,0.0019935095039406584,True,retained as a legitimate predictor
+asthma_ever,MCQ,ever told had asthma,binary,0.0007881316643486324,True,retained as a legitimate predictor
+bmi,BMX,body mass index (kg/m2),numeric,0.014186369958275382,True,retained as a legitimate predictor
+born_us,DEMO,"country of birth (1 US, 2 other)",binary,0.0005099675475197032,True,retained as a legitimate predictor
+bronchitis,MCQ,ever told had chronic bronchitis,binary,0.0016226240148354196,True,retained as a legitimate predictor
+cancer_ever,MCQ,ever told had cancer or a malignancy,binary,0.0004172461752433936,True,retained as a legitimate predictor
+dbp,derived,derived from raw NHANES variables,numeric,0.04242002781641168,True,retained as a legitimate predictor
+education,DEMO,"education level, adults 20+",numeric,0.0010199350950394065,True,retained as a legitimate predictor
+emphysema,MCQ,ever told had emphysema,binary,0.0011590171534538712,True,retained as a legitimate predictor
+fam_hist_asthma,MCQ,close relative had asthma,binary,0.021279554937413073,True,retained as a legitimate predictor
+fam_hist_diabetes,MCQ,close relative had diabetes,binary,0.017941585535465925,True,retained as a legitimate predictor
+fam_hist_mi,MCQ,close relative had a heart attack before age 50,binary,0.02364394993045897,True,retained as a legitimate predictor
+gout,MCQ,ever told had gout,binary,0.0007881316643486324,True,retained as a legitimate predictor
+hdl,HDL,direct HDL cholesterol (mg/dL),numeric,0.0598516458043579,True,retained as a legitimate predictor
+height,BMX,standing height (cm),numeric,0.01223922114047288,True,retained as a legitimate predictor
+income_poverty_ratio,DEMO,ratio of family income to poverty (top-coded at 5),numeric,0.09851645804357904,True,retained as a legitimate predictor
+ldl,TRIGLY,"LDL cholesterol (mg/dL), fasting sub-sample",numeric,0.5611961057023644,True,retained as a legitimate predictor
+liver_condition,MCQ,ever told had a liver condition,binary,0.0015762633286972648,True,retained as a legitimate predictor
+marital,DEMO,marital status,numeric,0.000602688919796013,True,retained as a legitimate predictor
+pulse,BPX,60 second pulse (beats/min),numeric,0.03801576263328697,True,retained as a legitimate predictor
+pulse_pressure,derived,derived from raw NHANES variables,numeric,0.04242002781641168,True,retained as a legitimate predictor
+pulse_regular,BPX,pulse regular (1) or irregular (2),binary,0.0373667130273528,True,retained as a legitimate predictor
+race_eth,DEMO,race / Hispanic origin incl. non-Hispanic Asian,numeric,0.0,True,retained as a legitimate predictor
+sbp,derived,derived from raw NHANES variables,numeric,0.039962911451089475,True,retained as a legitimate predictor
+sex,DEMO,"sex (1 male, 2 female)",binary,0.0,True,retained as a legitimate predictor
+thyroid_problem,MCQ,ever told had a thyroid problem,binary,0.002086230876216968,True,retained as a legitimate predictor
+told_overweight,MCQ,doctor ever said you were overweight,binary,0.0006490496059341678,True,retained as a legitimate predictor
+total_chol,TCHOL,total cholesterol (mg/dL),numeric,0.0598516458043579,True,retained as a legitimate predictor
+triglycerides,TRIGLY,"triglycerides (mg/dL), fasting sub-sample",numeric,0.5549837737598516,True,retained as a legitimate predictor
+waist,BMX,waist circumference (cm),numeric,0.06193787668057487,True,retained as a legitimate predictor
+weight,BMX,weight (kg),numeric,0.012424663885025498,True,retained as a legitimate predictor
+age_told_chd,MCQ,age when first told had coronary heart disease,numeric,0.9708854891052388,False,"MCQ180C asks at what age the participant was told they had CHD. It is only recorded for people who answered yes, so it is a direct restatement of the label. It is also absent from the 2017-2018 file."
+angina,MCQ,ever told had angina / angina pectoris,binary,0.0023180343069077423,False,"Angina is asked in the same MCQ160 series, in the same interview, and in clinical terms angina is a presentation of coronary disease rather than a separate risk factor. A model using it would mostly be predicting one self-report from a neighbouring self-report."
+asthma_still,MCQ,still has asthma (asked only of asthma cases),binary,0.8532220676866018,False,"observed for only 14.7% of the cohort, which is too sparse to be useful"
+chf,MCQ,ever told had congestive heart failure,binary,0.0016689847009735744,False,Heart failure is frequently a consequence of coronary disease and is asked in the same block. It is kept for the sensitivity model but not used in the main one.
+exam_status,DEMO,interview only (1) vs interview + MEC examination (2),categorical,0.0,False,"Used to define the cohort, so it is constant after selection."
+heart_attack,MCQ,ever told had a heart attack (myocardial infarction),binary,0.000880853036624942,False,"Myocardial infarction is part of coronary heart disease. Someone reporting a heart attack has, by definition, coronary disease, so this is close to a second label rather than a predictor."
+mcq160c_raw,MCQ,ever told had coronary heart disease,binary,0.0,False,This is the source of the outcome. Keeping it would be circular.
+psu,DEMO,masked variance PSU,numeric,0.0,False,"Masked variance unit, meaningless as a predictor."
+sddsrvyr,DEMO,NHANES cycle number,numeric,0.0,False,"The cycle number is kept as a grouping variable for the temporal checks, but a model should not learn from which survey round a person happened to be sampled in."
+seqn,DEMO,participant identifier,categorical,,False,Sequence number carries no information about the person.
+stratum,DEMO,masked variance stratum,numeric,0.0,False,"Masked variance stratum, meaningless as a predictor."
+stroke,MCQ,ever told had a stroke,binary,0.0008344923504867872,False,"Stroke is a different event from CHD, so this is a weaker case than angina or MI. It is still excluded from the main model for consistency: the whole MCQ160 cardiovascular block is treated the same way, and its effect is quantified in the sensitivity model."
+wt_int,DEMO,2-year interview sample weight,numeric,0.0,False,"Sample weights describe the sampling design, not the participant. They are kept aside for the weighted descriptive estimates."
+wt_mec,DEMO,2-year MEC examination sample weight,numeric,0.0,False,Same as the interview weight.

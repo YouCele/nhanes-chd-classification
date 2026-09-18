@@ -1,0 +1,5 @@
+error_type,mean,median,size
+false_negative,1.7,2.0,40
+false_positive,1.8891730605285593,2.0,1173
+true_negative,1.7195,2.0,4000
+true_positive,1.7166666666666666,2.0,180

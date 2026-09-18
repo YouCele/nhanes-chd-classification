@@ -1,0 +1,18 @@
+{
+  "raw": {
+    "calibration_slope": 0.8919243429210091,
+    "calibration_intercept": -3.1030069406294913,
+    "mean_predicted_risk": 0.2955311403707138,
+    "observed_risk": 0.040793621361023547,
+    "ratio_observed_expected": 0.13803493367856967,
+    "brier": 0.14723151020389275
+  },
+  "recalibrated": {
+    "calibration_slope": 1.034474775693413,
+    "calibration_intercept": 0.07531565655091053,
+    "mean_predicted_risk": 0.04091498903821554,
+    "observed_risk": 0.040793621361023547,
+    "ratio_observed_expected": 0.9970336622336955,
+    "brier": 0.03438645922339627
+  }
+}

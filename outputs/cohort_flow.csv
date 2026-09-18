@@ -1,0 +1,6 @@
+step,n,cases,reason,pct_of_previous
+"all screened participants, four cycles",39156,,DEMO row count,
+adults aged 20+,22617,,the CHD question is only asked of adults 20 and over,0.5776
+examined in the mobile examination centre,21646,,"the intended predictors include measured blood pressure and body size, which interview-only participants never have",0.9571
+usable CHD answer (yes or no),21570,881.0,"76 refused, did not know, or had no answer recorded",0.9965
+final analytical cohort,21570,881.0,"kept; 73 of them have no usable examination measurement, handled by imputation rather than exclusion",1.0

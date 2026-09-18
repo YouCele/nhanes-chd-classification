@@ -1,0 +1,107 @@
+{
+  "target": {
+    "variable": "MCQ160C",
+    "file": "MCQ (Medical Conditions questionnaire)",
+    "question": "Has a doctor or other health professional ever told you that you had coronary heart disease?",
+    "asked_of": "participants aged 20 years and over",
+    "codes": "1 = Yes, 2 = No, 7 = Refused, 9 = Don't know, blank = missing",
+    "mapping": "1 -> 1 ; 2 -> 0 ; 7, 9, blank -> excluded (target not usable)",
+    "note": "This is self-reported, physician-diagnosed CHD. It is not angiography-confirmed disease and it is not a clinical gold standard."
+  },
+  "cohort": {
+    "min_age": 20,
+    "require_mec_exam": true,
+    "n": 21570,
+    "cases": 881,
+    "prevalence": 0.0408437644877144
+  },
+  "excluded_variables": {
+    "mcq160c_raw": "This is the source of the outcome. Keeping it would be circular.",
+    "age_told_chd": "MCQ180C asks at what age the participant was told they had CHD. It is only recorded for people who answered yes, so it is a direct restatement of the label. It is also absent from the 2017-2018 file.",
+    "angina": "Angina is asked in the same MCQ160 series, in the same interview, and in clinical terms angina is a presentation of coronary disease rather than a separate risk factor. A model using it would mostly be predicting one self-report from a neighbouring self-report.",
+    "heart_attack": "Myocardial infarction is part of coronary heart disease. Someone reporting a heart attack has, by definition, coronary disease, so this is close to a second label rather than a predictor.",
+    "chf": "Heart failure is frequently a consequence of coronary disease and is asked in the same block. It is kept for the sensitivity model but not used in the main one.",
+    "stroke": "Stroke is a different event from CHD, so this is a weaker case than angina or MI. It is still excluded from the main model for consistency: the whole MCQ160 cardiovascular block is treated the same way, and its effect is quantified in the sensitivity model.",
+    "wt_int": "Sample weights describe the sampling design, not the participant. They are kept aside for the weighted descriptive estimates.",
+    "wt_mec": "Same as the interview weight.",
+    "psu": "Masked variance unit, meaningless as a predictor.",
+    "stratum": "Masked variance stratum, meaningless as a predictor.",
+    "sddsrvyr": "The cycle number is kept as a grouping variable for the temporal checks, but a model should not learn from which survey round a person happened to be sampled in.",
+    "exam_status": "Used to define the cohort, so it is constant after selection.",
+    "seqn": "Sequence number carries no information about the person.",
+    "asthma_still": "observed for only 14.7% of the cohort, which is too sparse to be useful"
+  },
+  "predictors": [
+    "age",
+    "sex",
+    "race_eth",
+    "education",
+    "marital",
+    "income_poverty_ratio",
+    "born_us",
+    "asthma_ever",
+    "anemia_treated",
+    "told_overweight",
+    "arthritis",
+    "emphysema",
+    "bronchitis",
+    "liver_condition",
+    "thyroid_problem",
+    "gout",
+    "cancer_ever",
+    "fam_hist_mi",
+    "fam_hist_asthma",
+    "fam_hist_diabetes",
+    "pulse",
+    "pulse_regular",
+    "bmi",
+    "waist",
+    "height",
+    "weight",
+    "arm_circ",
+    "total_chol",
+    "hdl",
+    "triglycerides",
+    "ldl",
+    "sbp",
+    "dbp",
+    "pulse_pressure"
+  ],
+  "missing_indicators": [
+    "ldl",
+    "triglycerides"
+  ],
+  "imputation": {
+    "numeric": "median inside the pipeline",
+    "categorical": "most frequent inside the pipeline",
+    "sensitivity": "mean imputation compared in the robustness script"
+  },
+  "split": {
+    "design": "stratified_random",
+    "chi2_p": 0.04014878868502139,
+    "prevalence_spread": 0.011004854994261792,
+    "max_availability_gap": 0.05539198181802518,
+    "prevalence_by_cycle": {
+      "2011-2012": 0.03529,
+      "2013-2014": 0.0402,
+      "2015-2016": 0.04165,
+      "2017-2018": 0.04629
+    },
+    "rule": "cycles treated as exchangeable when the prevalence difference is small or not significant and no predictor is missing in a whole cycle; the cycle-based evaluation is then kept as a robustness check instead of the main design"
+  },
+  "class_imbalance": "class weights, no resampling",
+  "models": [
+    "logistic_regression",
+    "gradient_boosting",
+    "random_forest",
+    "dummy"
+  ],
+  "selected_model": "logistic_regression",
+  "metrics": {
+    "primary": "average_precision",
+    "secondary": "roc_auc",
+    "threshold_rule": "Youden J on cross-validated development predictions",
+    "threshold": 0.4868969245180332
+  },
+  "seed": 2026
+}

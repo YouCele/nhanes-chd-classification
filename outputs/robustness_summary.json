@@ -1,0 +1,40 @@
+{
+  "threshold": 0.4868969245180332,
+  "repeated_split_roc_auc_mean": 0.8725242957313322,
+  "repeated_split_roc_auc_sd": 0.007951044409156238,
+  "cycle_holdout": [
+    {
+      "train_cycles": "2011-2012;2013-2014",
+      "test_cycles": "2015-2016;2017-2018",
+      "n_train": 10871,
+      "n_test": 10699,
+      "train_prevalence": 0.03780700947474933,
+      "test_prevalence": 0.04392933919057856,
+      "roc_auc": 0.8783953840041766,
+      "pr_auc": 0.23152907449142401,
+      "cal_calibration_slope": 0.9871476211384049,
+      "cal_calibration_intercept": -3.221730279179556,
+      "cal_mean_predicted_risk": 0.330811055840095,
+      "cal_observed_risk": 0.04392933919057856,
+      "cal_ratio_observed_expected": 0.1327928387369641,
+      "cal_brier": 0.1672259149407959
+    },
+    {
+      "train_cycles": "2011-2012;2013-2014;2015-2016",
+      "test_cycles": "2017-2018",
+      "n_train": 16321,
+      "n_test": 5249,
+      "train_prevalence": 0.03909074198884872,
+      "test_prevalence": 0.046294532291865115,
+      "roc_auc": 0.872757629116665,
+      "pr_auc": 0.23324897652390328,
+      "cal_calibration_slope": 0.9154887485749135,
+      "cal_calibration_intercept": -3.1956364213606547,
+      "cal_mean_predicted_risk": 0.3389612347236675,
+      "cal_observed_risk": 0.046294532291865115,
+      "cal_ratio_observed_expected": 0.13657766006666208,
+      "cal_brier": 0.17661809260725453
+    }
+  ],
+  "imputation_difference": 9.00695219685499e-06
+}

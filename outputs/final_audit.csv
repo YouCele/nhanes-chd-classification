@@ -1,0 +1,52 @@
+section,item,status,detail
+data,all required raw files found,pass,28 of 28 files
+data,four cycles present,pass,"2011-2012, 2013-2014, 2015-2016, 2017-2018"
+data,SEQN unique in the cohort,pass,21570 rows
+data,SEQN never missing,pass,
+data,merge retention recorded for every file,pass,28 merge steps logged
+data,cycle differences documented,pass,
+target,definition documented,pass,MCQ160C
+target,"refused and don't know excluded, not set to 0",pass,valid target count equals yes + no in every cycle
+target,target is strictly binary,pass,
+target,no missing target in the cohort,pass,
+target,prevalence checked across cycles,pass,
+leakage,every decision has a written reason,pass,18 decisions
+leakage,the outcome variable is not a predictor,pass,
+leakage,cardiovascular questionnaire block kept out of the model,pass,"excluded: age_told_chd, angina, chf, heart_attack, stroke"
+leakage,every excluded variable has a documented reason,pass,14 excluded variables
+leakage,effect of the excluded block quantified,pass,
+missingness,missingness measured for every predictor,pass,35 variables
+missingness,missingness compared by outcome and by cycle,pass,
+missingness,indicator decisions documented,pass,"indicators: ['ldl', 'triglycerides']"
+missingness,imputation happens inside the pipelines,pass,"SimpleImputer sits inside every model pipeline, fitted per fold"
+missingness,alternative imputation tested,pass,
+modelling,split design justified before modelling,pass,stratified_random: cycles treated as exchangeable when the prevalence difference is small or not si...
+modelling,"test set is a quarter of the cohort, stratified",pass,0.250 of rows
+modelling,prevalence similar in both parts,pass,development 0.0409 vs test 0.0408
+modelling,a dummy baseline was run,pass,dummy PR-AUC 0.041
+modelling,at least three real models compared,pass,
+modelling,class imbalance handled,pass,"class weights inside the estimators, no oversampling of any test data"
+modelling,tuning recorded,pass,
+modelling,models compared on the same folds,pass,
+evaluation,all required metrics reported,pass,"roc_auc, pr_auc, brier, sensitivity, specificity, ppv, npv"
+evaluation,confidence intervals reported,pass,"1000 bootstrap resamples, stratified"
+evaluation,calibration evaluated,pass,
+evaluation,recalibrated probabilities are close to observed risk,pass,calibration slope 1.034
+evaluation,confusion matrix reported,pass,
+evaluation,"test set used once, after the decisions were frozen",manual,the threshold comes from cross-validated development predictions
+interpretation,coefficients with intervals reported,pass,
+interpretation,permutation importance reported,pass,
+interpretation,agreement between models examined,pass,
+interpretation,prediction kept separate from causation,manual,wording checked by hand in the report
+robustness,repeated splits,pass,robustness_repeated_splits.csv
+robustness,cycle based evaluation,pass,robustness_cycle_holdout.csv
+robustness,predictor reduction,pass,robustness_predictor_sets.csv
+robustness,class weight sensitivity,pass,robustness_class_weight.csv
+robustness,subgroup analysis,pass,subgroup_results.csv
+robustness,error analysis,pass,error_analysis.csv
+robustness,performance stable across splits,pass,ROC-AUC sd 0.0080 over 10 splits
+robustness,small subgroups flagged rather than interpreted,pass,3 subgroups marked as too small
+reproducibility,random seed fixed,pass,seed 2026
+reproducibility,relative paths only,pass,raw dir: data/raw
+reproducibility,requirements file present,pass,
+reproducibility,decision log present,pass,

@@ -1,0 +1,5 @@
+cycle,n_rows_mcq,code_1_yes,code_2_no,code_7_refused,code_9_dontknow,code_missing,other_codes,target_valid,target_positive,implausible_values_set_to_missing
+2011-2012,9364,196,5342,2,19,3805,,5538,196,age:3892;pulse:1;waist:3;height:698;weight:1760;arm_circ:6;ldl:1
+2013-2014,9770,232,5519,0,18,4001,,5751,232,age:4062;height:652;weight:1784;arm_circ:7;total_chol:1;triglycerides:1
+2015-2016,9575,244,5449,0,26,3856,,5693,244,age:3979;bmi:1;height:647;weight:1754;arm_circ:4;hdl:1
+2017-2018,8897,265,5288,0,16,3328,,5553,265,age:3398;height:551;weight:1414;arm_circ:6

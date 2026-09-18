@@ -1,0 +1,9 @@
+{
+  "selected_model": "logistic_regression",
+  "threshold": 0.4868969245180332,
+  "development_cv_roc_auc": 0.8723585462901721,
+  "development_cv_pr_auc": 0.2332660985562241,
+  "test_roc_auc": 0.8751278491467936,
+  "test_pr_auc": 0.23942879687533092,
+  "cv_inside_test_ci": true
+}

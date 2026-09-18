@@ -1,0 +1,7 @@
+{
+  "selected_model": "logistic_regression",
+  "primary_metric": "average_precision",
+  "cv_score": 0.2332660985562241,
+  "runner_up": "gradient_boosting",
+  "selection_note": "selected on cross-validated PR-AUC in the development data only; the test set was not used at any point in this script"
+}
