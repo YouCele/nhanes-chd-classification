@@ -30,31 +30,6 @@ lipids and body size - the variables clinical guidance already uses, not
 anything new. Full numbers, including the leakage check, the calibration
 curve and the subgroup breakdown, are in `outputs/` and in the report.
 
-## What makes this more than a Kaggle notebook
-
-- **A documented leakage investigation.** The MCQ160 cardiovascular
-  questionnaire block (heart attack, angina, heart failure, stroke) is
-  excluded from the model with a written reason for each variable, and the
-  size of the effect is quantified rather than just asserted: adding that
-  block back in moves PR-AUC from 0.23 to 0.51. Reporting the higher number
-  would have been the easy, wrong thing to do.
-- **No global preprocessing.** Every imputation and scaling step lives
-  inside the model pipeline, fitted per cross-validation fold. Nothing is
-  computed on the full data set before the split.
-- **A frozen threshold.** The operating point is chosen on cross-validated
-  development predictions before the test set is touched.
-- **Recalibration, reported honestly.** The class-weighted model's raw
-  probabilities are badly miscalibrated (mean predicted risk 30% against an
-  observed 4%). A sigmoid recalibration fixes this (slope 1.03, Brier
-  0.147 -> 0.034), and the report says plainly that the raw numbers should
-  never be read as risks.
-- **51 automated checks** against the saved outputs (`scripts/run_07_audit.py`,
-  `reports/audit_report.md`), covering data integrity, target coding, leakage
-  decisions, missingness handling, split design and reproducibility.
-- **A report generated from its own numbers.** `reports/final_report.md` is
-  produced by `scripts/run_08_report.py` directly from the files in
-  `outputs/`; nothing in it is typed in separately from the analysis.
-
 ## What this project does not have
 
 Smoking, diabetes and blood-pressure-medication data are not part of the
